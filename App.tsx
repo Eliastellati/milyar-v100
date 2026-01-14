@@ -85,15 +85,15 @@ const ProjectCard: React.FC<{ project: Project; isMain?: boolean }> = ({ project
     <div 
       tabIndex={0}
       className={`
-        group relative overflow-hidden rounded-[2rem] bg-zinc-900/40 border border-white/5 cursor-pointer outline-none shadow-2xl
+        group relative overflow-hidden rounded-[2rem] liquid-glass border border-white/5 cursor-pointer outline-none
         ${isMain ? 'h-[500px] md:h-[600px] md:col-span-2' : 'h-[400px] md:h-[450px] col-span-1'}
       `}
     >
       {/* Primary Image Layer */}
       <div 
-        className="absolute inset-0 transition-all duration-1000 ease-out group-hover:scale-110 group-focus:scale-110 bg-zinc-900" 
+        className="absolute inset-0 transition-all duration-1000 ease-out group-hover:scale-110 group-focus:scale-110 liquid-glass" 
         style={{ 
-          backgroundImage: `linear-gradient(to top, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.1) 100%), url("${project.imageUrl}")`, 
+          backgroundImage: `linear-gradient(to top, rgba(5, 5, 5, 0.45) 0%, rgba(12, 12, 12, 0.2) 100%), url("${project.imageUrl}")`, 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat', 
           backgroundPosition: 'center' 
@@ -109,7 +109,7 @@ const ProjectCard: React.FC<{ project: Project; isMain?: boolean }> = ({ project
       </div>
 
       {/* Hover/Focus Detail Layer */}
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-2xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-500 flex flex-col justify-center p-8 md:p-12">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-2xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-500 flex flex-col justify-center p-8 md:p-12">
         <div className="transform translate-y-8 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-500 ease-out">
           <span className="text-primary font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">
             {project.category}
