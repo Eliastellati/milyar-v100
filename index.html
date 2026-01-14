@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milyar Group | High-End Tech Excellence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3713ec",
+            "background-dark": "#050505",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"],
+            "accent": ["Playfair Display", "serif"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      html {
+        background-color: #050505;
+      }
+      body {
+        @apply text-white antialiased selection:bg-primary/30;
+        margin: 0;
+        padding: 0;
+        background: transparent !important;
+        overflow-x: hidden;
+      }
+      #root {
+        background: transparent !important;
+        min-height: 100vh;
+      }
+    }
+    
+    /* THE NOISY SHADER BACKGROUND SYSTEM */
+    .shader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -10;
+      background: #050505;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .shader-layer {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(55, 19, 236, 0.4) 0%, transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(30, 58, 138, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 5% 90%, rgba(219, 39, 119, 0.25) 0%, transparent 40%);
+      filter: blur(100px);
+      animation: drift 40s infinite alternate linear;
+      will-change: transform;
+    }
+
+    @keyframes drift {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(8deg) scale(1.1); }
+    }
+
+    /* CRITICAL GRAIN TEXTURE */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -9;
+      opacity: 0.55;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* CUSTOM UTILITY TO HIDE SCROLLBARS BUT ALLOW SCROLL */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body class="font-display">
+  <!-- BACKGROUND LAYERS ARE OUTSIDE ROOT TO ENSURE VISIBILITY -->
+  <div class="shader-container">
+    <div class="shader-layer"></div>
+  </div>
+  <div class="grain-overlay"></div>
+  
+  <div id="root"></div>
+</body>
+</html>
