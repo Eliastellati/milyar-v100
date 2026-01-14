@@ -25,14 +25,14 @@ const MAIN_PROJECTS: Project[] = [
     title: 'A.B.F.A.M.',
     category: 'Education',
     description: 'Un progetto dedicato a rendere l’istruzione più accessibile per chi è in difficoltà, grazie alla raccolta, scambio e rivendita di libri usati.',
-    imageUrl: 'images/abfam.png',
+    imageUrl: '/images/abfam.png',
   },
   {
     id: 'm2',
     title: 'Movida',
     category: 'Hospitality',
     description: 'Soluzioni e strumenti per il mondo dell’ospitalità: gestione, formazione e innovazione per ristoranti, hotel e attività.',
-    imageUrl: 'images/movida.png',
+    imageUrl: '/images/movida.png',
   }
 ];
 
@@ -42,21 +42,21 @@ const SIDE_PROJECTS: Project[] = [
     title: 'Eco-Tech API',
     category: 'Sustainability',
     description: 'Greentech monitoring solutions providing real-time carbon footprint metrics.',
-    imageUrl: 'images/eco-tech.png',
+    imageUrl: '/images/ailearn.png',
   },
   {
     id: 's2',
     title: 'VR Workspace',
     category: 'Mixed Reality',
     description: 'Immersive collaboration environment for spatial computing.',
-    imageUrl: 'images/vr-workspace.png',
+    imageUrl: '/images/mpay.png',
   },
   {
     id: 's3',
     title: 'Neural Node',
     category: 'Machine Learning',
     description: 'Micro-service orchestration for distributed neural networks.',
-    imageUrl: 'images/neural-node.png',
+    imageUrl: '/images/planey.png',
   }
 ];
 
@@ -94,7 +94,8 @@ const ProjectCard: React.FC<{ project: Project; isMain?: boolean }> = ({ project
         className="absolute inset-0 transition-all duration-1000 ease-out group-hover:scale-110 group-focus:scale-110 bg-zinc-900" 
         style={{ 
           backgroundImage: `linear-gradient(to top, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.1) 100%), url("${project.imageUrl}")`, 
-          backgroundSize: 'cover', 
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat', 
           backgroundPosition: 'center' 
         }}
       ></div>

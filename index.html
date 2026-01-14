@@ -112,15 +112,6 @@
       display: none;
     }
   </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
-  }
-}
-</script>
 </head>
 <body class="font-display">
   <!-- BACKGROUND LAYERS ARE OUTSIDE ROOT TO ENSURE VISIBILITY -->
@@ -130,5 +121,6 @@
   <div class="grain-overlay"></div>
   
   <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
